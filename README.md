@@ -1,29 +1,66 @@
-# Campo Minado (Java Swing) 
+# Campo Minado — Java Swing
 
-Projeto finalizado que implementa o clássico jogo Campo Minado com uma interface gráfica completa em Java Swing e aplicação do padrão de projeto Observer.
+Implementação do clássico Campo Minado em Java 26, com interface gráfica em Swing. O projeto aplica o padrão Observer para conectar as regras do jogo aos componentes da tela.
 
-##  O Jogo em Ação
+## Funcionalidades
 
-O jogo conta com um tabuleiro dinâmico e interações completas de cliques para abrir campos e marcar bandeiras:
+- Abertura de campos com o botão esquerdo do mouse.
+- Marcação e remoção de bandeiras com o botão direito.
+- Atualização da interface a cada alteração no tabuleiro.
+- Telas de vitória e derrota, com mensagem personalizada ao encontrar uma mina.
 
+## O jogo em ação
 
-![](src/IMG/PADRÃO.png)
+### Tabuleiro
 
-###  Tela de Derrota (Personalizada)
-Se você bobear e clicar em uma mina... já sabe!
-![Mensagem de derrota](src/IMG/LOSS.png)
+Use os números dos campos abertos para identificar onde estão as minas e decidir seu próximo movimento.
 
-###  Tela de Vitória
-O momento glorioso de limpar o tabuleiro e isolar todas as bombas:
+![Tabuleiro do Campo Minado](src/IMG/PADRÃO.png)
+
+### Tela de derrota
+
+A partida termina quando uma mina é aberta.
+
+![Tela de derrota](src/IMG/LOSS.png)
+
+### Tela de vitória
+
+Ao resolver o tabuleiro, o jogo exibe a tela de vitória.
+
 ![Tela de vitória](src/IMG/WIN.png)
 
----
+## Como jogar
 
-##  Tecnologias Utilizadas
-* **Java 26** 
-* **Java Swing** (Interface Gráfica)
+| Controle | Ação |
+| --- | --- |
+| Clique esquerdo | Abrir um campo |
+| Clique direito | Marcar ou desmarcar uma bandeira |
 
-##  Conceitos Praticados
-* **Padrão de Projeto Observer:** Utilizado para conectar a lógica do tabuleiro com os botões da tela, garantindo que a interface gráfica reaja instantaneamente a cada clique ou alteração de estado.
-* **Expressões Lambda & Streams:** Aplicação de programação funcional para percorrer a matriz de campos e filtrar os vizinhos com um código muito mais limpo e moderno.
-* **Tratamento de Eventos (Event Handling):** Gerenciamento de cliques do mouse (esquerdo para abrir, direito para colocar marcação).
+Cada número indica a quantidade de minas nos campos vizinhos. Use essas informações para encontrar os campos seguros e marcar os suspeitos.
+
+O objetivo é revelar os campos seguros sem abrir uma mina.
+
+## Tecnologias utilizadas
+
+- **Java 26:** lógica e regras do jogo.
+- **Java Swing:** interface gráfica e interação com o usuário.
+
+## Conceitos aplicados
+
+### Padrão Observer
+
+Os componentes da interface observam as mudanças nos campos do tabuleiro. Quando um campo é aberto ou marcado, seus observadores são notificados e atualizam a representação visual.
+
+Essa estrutura mantém as regras do jogo separadas do código responsável pela interface.
+
+### Expressões lambda e Streams
+
+Utilizadas para percorrer os campos do tabuleiro e filtrar seus vizinhos, simplificando operações sobre as coleções.
+
+### Tratamento de eventos
+
+Os eventos do mouse diferenciam os cliques esquerdo e direito e acionam as operações de abertura e marcação dos campos.
+
+## Sobre o projeto
+
+Projeto concluído como prática de desenvolvimento em Java, com foco em interfaces gráficas, tratamento de eventos e aplicação do padrão Observer.
