@@ -1,19 +1,19 @@
-# Campo Minado (Java Swing) 💣
+# Campo Minado (Java Swing) 
 
 Projeto finalizado que implementa o clássico jogo Campo Minado com uma interface gráfica completa em Java Swing e aplicação do padrão de projeto Observer.
 
-## 🕹️ O Jogo em Ação
+##  O Jogo em Ação
 
 O jogo conta com um tabuleiro dinâmico e interações completas de cliques para abrir campos e marcar bandeiras:
 
 
 ![](src/IMG/PADRÃO.png)
 
-### 💥 Tela de Derrota (Personalizada)
+###  Tela de Derrota (Personalizada)
 Se você bobear e clicar em uma mina... já sabe!
 ![Mensagem de derrota](src/IMG/LOSS.png)
 
-### 🏆 Tela de Vitória
+###  Tela de Vitória
 O momento glorioso de limpar o tabuleiro e isolar todas as bombas:
 ![Tela de vitória](src/IMG/WIN.png)
 
