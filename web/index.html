@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101411">
+  <title>Campo Minado — Só mais uma partida.</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/style.css">
+  <script src="/app.js" defer></script>
+</head>
+<body>
+  <svg class="svg-library" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <symbol id="i-mine" viewBox="0 0 24 24"><circle cx="12" cy="12" r="6"/><path d="M12 2v4m0 12v4M2 12h4m12 0h4M5 5l3 3m8 8 3 3M5 19l3-3m8-8 3-3"/><circle cx="10" cy="10" r="1" fill="currentColor" stroke="none"/></symbol>
+    <symbol id="i-flag" viewBox="0 0 24 24"><path d="M5 21V4m0 0c5-4 9 4 14 0v10c-5 4-9-4-14 0"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-reset" viewBox="0 0 24 24"><path d="M3 10a9 9 0 1 1 2 8M3 4v6h6"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-help" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9 9a3 3 0 0 1 6 0c0 2-3 2-3 5m0 3h.01"/></symbol>
+    <symbol id="i-sound" viewBox="0 0 24 24"><path d="m11 4-6 5H2v6h3l6 5V4m4 4a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14"/></symbol>
+    <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M7 3h10v6a5 5 0 0 1-10 0V3m0 2H3v3a4 4 0 0 0 4 4m10-7h4v3a4 4 0 0 1-4 4m-5 2v6m-5 1h10"/></symbol>
+    <symbol id="i-pointer" viewBox="0 0 24 24"><path d="m5 3 14 10-7 1-3 7L5 3Z"/></symbol>
+    <symbol id="i-spark" viewBox="0 0 24 24"><path d="m12 3 2.5 6.5L21 12l-6.5 2.5L12 21l-2.5-6.5L3 12l6.5-2.5L12 3Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+  </svg>
+
+  <aside class="sidebar">
+    <a class="brand" href="/" aria-label="Campo Minado, início"><span class="brand-icon"><svg><use href="#i-mine"/></svg></span><span>campo<span class="brand-light">minado</span><small>UM CLÁSSICO. OUTRA VIBE.</small></span></a>
+    <div class="sidebar-section"><span class="eyebrow">SEU PRÓXIMO DESAFIO</span><h2>Escolha o ritmo.</h2><p>Um clique de cada vez.</p></div>
+    <nav class="levels" aria-label="Dificuldade">
+      <button class="level" data-level="iniciante"><span class="level-icon">Ⅰ</span><span><strong>Iniciante</strong><small>9 × 9 · 10 minas</small></span><span class="level-dot"></span></button>
+      <button class="level" data-level="intermediario"><span class="level-icon">Ⅱ</span><span><strong>Intermediário</strong><small>16 × 16 · 40 minas</small></span><span class="level-dot"></span></button>
+      <button class="level active" data-level="classico" aria-pressed="true"><span class="level-icon">Ⅲ</span><span><strong>Clássico <em>ORIGINAL</em></strong><small>16 × 30 · 50 minas</small></span><span class="level-dot"></span></button>
+      <button class="level" data-level="especialista"><span class="level-icon">Ⅳ</span><span><strong>Especialista</strong><small>16 × 30 · 99 minas</small></span><span class="level-dot"></span></button>
+    </nav>
+    <div class="personal-record"><svg><use href="#i-trophy"/></svg><span class="eyebrow">SEU MELHOR TEMPO</span><strong id="best-time">— — : — —</strong><p id="best-caption">Sua primeira vitória começa aqui.</p></div>
+    <div class="sidebar-bottom"><span class="tiny-mine">✳</span><p>Menos pressa.<br>Mais estratégia.</p><small>FEITO PARA SÓ MAIS UMA PARTIDA.</small></div>
+  </aside>
+
+  <main>
+    <header class="topbar"><span><span class="live-dot"></span> UM TEMPO PARA JOGAR</span><div><button class="icon-button" id="sound" aria-label="Ativar sons" aria-pressed="false" title="Ativar sons"><svg><use href="#i-sound"/></svg><span id="sound-label">Som desligado</span></button><button class="icon-button help-button" id="help"><svg><use href="#i-help"/></svg><span>Como jogar</span></button></div></header>
+    <section class="heading"><div><div class="eyebrow">LÓGICA, INTUIÇÃO E UM POUCO DE CORAGEM</div><h1>Limpe o campo<span>.</span></h1><p>Encontre o caminho seguro. Deixe as minas para trás.</p></div><button class="new-game" id="new-game"><svg><use href="#i-reset"/></svg>Nova partida<span class="keycap">R</span></button></section>
+
+    <section class="stats" aria-label="Informações da partida">
+      <div class="stat"><span class="stat-icon mint"><svg><use href="#i-flag"/></svg></span><div><span class="eyebrow">MINAS RESTANTES</span><strong id="remaining">050</strong></div><span class="stat-note" id="flag-count">0 bandeiras</span></div>
+      <div class="stat"><span class="stat-icon blue"><svg><use href="#i-clock"/></svg></span><div><span class="eyebrow">TEMPO DE JOGO</span><strong id="timer">00:00</strong></div><span class="stat-note" id="timer-note">Sem pressa.</span></div>
+      <div class="stat"><span class="stat-icon lavender"><svg><use href="#i-grid"/></svg></span><div><span class="eyebrow">CAMPO EXPLORADO</span><strong id="progress-number">0<span>%</span></strong></div><span class="stat-note" id="open-count">0 / 430 casas</span></div>
+    </section>
+
+    <section class="game-card" aria-label="Campo minado">
+      <div class="game-toolbar"><div class="board-title"><svg><use href="#i-grid"/></svg><strong id="level-title">Clássico</strong><span id="dimensions">16 × 30</span></div><div class="play-status" id="play-status"><span class="live-dot"></span><span id="status-label">PRONTO PARA COMEÇAR</span></div></div>
+      <div class="board-scroll" id="board-scroll" tabindex="0" aria-label="Área do tabuleiro. Role horizontalmente em telas pequenas."><div id="board" class="board" role="grid" aria-label="Tabuleiro de campo minado" aria-busy="true"></div></div>
+      <div class="board-footer"><span id="board-hint"><svg><use href="#i-spark"/></svg>O primeiro clique é sempre seguro.</span><div class="mode-switch" role="group" aria-label="Ação ao clicar"><button id="mode-open" class="selected" aria-pressed="true"><svg><use href="#i-pointer"/></svg>Revelar</button><button id="mode-flag" aria-pressed="false"><svg><use href="#i-flag"/></svg>Marcar</button></div></div>
+    </section>
+
+    <section class="below-board"><div class="tip"><span class="tip-symbol">!</span><p><strong>O número é a pista.</strong> Ele indica quantas minas estão nas 8 casas ao redor.</p></div><div class="progress-summary"><span>Seu próximo passo é o que conta.</span><div class="progress-track" role="progressbar" aria-label="Campo explorado" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><span id="progress-fill"></span></div></div></section>
+    <footer class="page-footer"><span><span class="mouse-shape"></span>Clique para revelar<span class="footer-divider">/</span>Botão direito para marcar</span><span><kbd>F</kbd> alternar ação <span class="footer-divider">·</span> <kbd>R</kbd> recomeçar</span></footer>
+    <div id="message" class="message" role="status" aria-live="polite"></div>
+  </main>
+
+  <dialog id="help-dialog"><button class="close-dialog" aria-label="Fechar ajuda">×</button><span class="dialog-icon"><svg><use href="#i-mine"/></svg></span><div class="eyebrow">UM MINUTO PARA APRENDER</div><h2>Cada casa, uma escolha.</h2><p>Abra todas as casas seguras e coloque uma bandeira em cada mina para vencer.</p><ol><li><strong>Revele uma casa.</strong> Clique, toque ou use Enter. Seu primeiro clique é seguro.</li><li><strong>Leia as pistas.</strong> O número conta as minas nas casas vizinhas, incluindo as diagonais. Áreas vazias abrem automaticamente.</li><li><strong>Marque as minas.</strong> Use o botão direito, a tecla F na casa em foco ou o modo Marcar no celular. Repita para retirar a bandeira.</li></ol><p class="help-keyboard">Use as setas para navegar pelo tabuleiro, Enter ou Espaço para jogar e R para iniciar de novo. Se encontrar uma mina, a partida termina.</p><button class="new-game close-help">Vamos jogar<svg><use href="#i-arrow"/></svg></button></dialog>
+  <dialog id="restart-dialog"><div class="eyebrow">UM NOVO COMEÇO</div><h2>Começar outra partida?</h2><p>O progresso desta partida será descartado.</p><div class="dialog-actions"><button class="secondary-button" id="cancel-restart">Continuar jogando</button><button class="new-game" id="confirm-restart">Começar nova</button></div></dialog>
+  <dialog id="result-dialog"><button class="close-dialog" aria-label="Ver tabuleiro">×</button><span class="dialog-icon" id="result-icon"></span><div class="eyebrow" id="result-eyebrow"></div><h2 id="result-title"></h2><p id="result-description"></p><div class="result-numbers"><div><span>TEMPO</span><strong id="result-time"></strong></div><div><span>EXPLORADO</span><strong id="result-progress"></strong></div></div><button class="new-game" id="play-again"><svg><use href="#i-reset"/></svg>Só mais uma partida</button><button class="text-button" id="view-board">Ver o tabuleiro</button></dialog>
+</body>
+</html>

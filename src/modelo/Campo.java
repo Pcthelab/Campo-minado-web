@@ -88,6 +88,10 @@ public class Campo {
         minado = true;
     }
 
+    void desminar() {
+        minado = false;
+    }
+
     public boolean isMarcado() {
         return marcado;
     }
