@@ -10,7 +10,7 @@ Campo Minado com interface web em tema escuro, quatro níveis de dificuldade e l
 
 ## Sobre o projeto
 
-O projeto nasceu como uma aplicação Java Swing e evoluiu para uma experiência no navegador. O nome do repositório preserva essa origem; a versão atual utiliza HTML, CSS e JavaScript na interface, conectados a um servidor HTTP escrito em Java.
+O projeto nasceu como uma aplicação Java Swing e evoluiu para uma experiência no navegador. A versão atual utiliza HTML, CSS e JavaScript na interface, conectados a um servidor HTTP escrito em Java.
 
 As regras, a distribuição das minas e o estado da partida ficam no servidor. O navegador apresenta o tabuleiro e envia as jogadas pela API, sem frameworks de frontend ou dependências externas para executar o jogo.
 
@@ -38,8 +38,8 @@ Não é necessário instalar Maven, Gradle ou pacotes npm para jogar.
 ### 1. Clone o repositório
 
 ```bash
-git clone https://github.com/Pcthelab/CampoMinadoSwing.git
-cd CampoMinadoSwing
+git clone https://github.com/Pcthelab/Campo-minado-web.git
+cd Campo-minado-web
 ```
 
 ### 2. Compile e inicie o servidor
@@ -133,7 +133,7 @@ O modelo controla abertura de casas, marcação, vizinhança, vitória e derrota
 ## Estrutura do projeto
 
 ```text
-CampoMinadoSwing/
+Campo-minado-web/
 ├── docs/images/              Capturas de tela do README
 ├── src/
 │   ├── modelo/               Regras, campos, tabuleiro e eventos
